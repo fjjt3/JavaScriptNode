@@ -4,11 +4,14 @@ const express = require('express');
 const debug = require('debug')('app:main');
 
 const { Config } = require('./src/config/index');
+const{ ProductsAPI } = require('./src/products/index');
 
 const app = express();
 
-// recibConfigir datos
+// recibir Configurar datos
 app.use(express.json());
+
+ProductsAPI(app);
 
 //modulos
 
