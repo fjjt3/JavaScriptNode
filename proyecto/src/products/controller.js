@@ -4,7 +4,7 @@ const debug = require("debug")("app:module-products-controller");
 const { ProductsService } = require("./services");
 const { Response } = require("../common/response");
 
-module.exportsProductsControlles = {
+module.exports.ProductsController = {
   getProducts: async (req, res) => {
     try {
       let products = await ProductsService.getAll();
@@ -38,7 +38,7 @@ module.exportsProductsControlles = {
         Response.error(res, new createError.BadRequest());
       } else {
         const insertedId = await ProductsService.create(body);
-        Response.success(res, 201, "Prodcuto agregado", insertedId);
+        Response.success(res, 201, "Producto agregado", insertedId);
       }
     } catch (error) {
       debug(error);
